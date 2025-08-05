@@ -1,0 +1,8 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="64" fill="#ef4444"/>
+  <g transform="translate(128, 100)">
+    <circle cx="128" cy="128" r="100" fill="white"/>
+    <path d="M128,32c-53,0-96,43-96,96 0,72 96,160 96,160s96-88 96-160c0-53-43-96-96-96zM128,160a32,32 0 1,1 0-64a32,32 0 1,1 0,64z" fill="#ef4444"/>
+  </g>
+  <text x="256" y="460" font-family="Segoe UI, sans-serif" font-size="120" fill="white" text-anchor="middle">SOS</text>
+</svg>
