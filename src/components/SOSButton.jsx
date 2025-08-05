@@ -3,8 +3,6 @@ import useGeoLocation from "../hooks/useGeoLocation";
 import useNetworkInfo from "../hooks/useNetworkInfo";
 import useSOS from "./useSOS";
 
-// import useSOS from "../hooks/useSOS";
-
 const SOSButton = () => {
   const { location, error: locationError } = useGeoLocation();
   const { isPoorConnection } = useNetworkInfo();
@@ -15,52 +13,11 @@ const SOSButton = () => {
     if (!location) {
         setStatus("Fetching Location...");
       }
-    if (!isPoorConnection) {
+    //if (!isPoorConnection) {
       sos.sendPayload();
-    }
+    //}
   }, [isPoorConnection]);
 
-  //   const handleSendSOS = async () => {
-  //     if (!location) {
-  //       setStatus("Fetching Location...");
-  //       return;
-  //     }
-
-  //     const payload = {
-  //       type: "EMERGENCY",
-  //       timestamp: new Date().toISOString(),
-  //       location,
-  //       network: isPoorConnection ? "Poor" : "Good",
-  //     };
-
-  //     const isVeryPoorNetwork = navigator.connection?.effectiveType === "2g";
-
-  //     if (!navigator.onLine || isPoorConnection || isVeryPoorNetwork) {
-  //       await savedToQueue(payload);
-  //       setStatus("Offline or poor network, SOS saved. Will retry automatically");
-
-  //       if ("serviceWorker" in navigator && "SyncManager" in window) {
-  //         try {
-  //           const registration = await navigator.serviceWorker.ready;
-  //           await registration.sync.register("sos-sync");
-  //           console.log("background sync registered");
-  //         } catch (err) {
-  //           console.log("background sync registration failed");
-  //           setStatus("Failed to send SOS. Try again later.");
-  //         }
-  //       }
-  //       return;
-  //     }
-  //     fetch("https://jsonplaceholder.typicode.com/posts", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(payload),
-  //     })
-  //       .then(() => setStatus("SOS Sent!"))
-  //       .catch(() => setStatus("Failed to send SOS"));
-  //   };
   console.log("location", location);
   return (
     <div className="flex flex-col items-center gap-4 p-6 border rounded-2xl shadow-xl bg-white max-w-md mx-auto">
@@ -89,15 +46,3 @@ const SOSButton = () => {
 };
 
 export default SOSButton;
-
-// export default function SOSButton() {
-//     const {triggerSOS} = useSOS();
-//     return (
-//         <button
-//             onClick={() => triggerSOS('medical')}
-//             className="fixed bottom-10 right-10 bg-red-600 text-white p-6 rounded-full shadow-lg"
-//         >
-//             EMERGENCY SOS! 🚨
-//         </button>
-//     )
-// }
