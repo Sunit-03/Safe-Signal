@@ -1,10 +1,3 @@
-
-
-
-          
-Here's the complete README.md content you can copy:
-
-```markdown
 # Safe Signal - Emergency Alert System
 
 ## Project Description
